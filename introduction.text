@@ -46,4 +46,8 @@ django-admin startproject hrsystem or django-admin startproject hrsystem .
 python manage.py runserver or python manage.py runserver [portNo]
 python manage.py startapp company or django-admin startapp myapp
 
+make DB connection using postgresql
+python manage.py migrate
+
 pip3 freeze > requirements.txt
+
