@@ -21,4 +21,5 @@ from company import views as compView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',compView.Branches,name="branches"),
+    path('branche/<int:branche_id>',compView.BrancheDetails,name="branchesDetails"),
 ]

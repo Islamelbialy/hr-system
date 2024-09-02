@@ -1,38 +1,29 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'base.html'%}
+{% block title%}
     <title>branches</title>
-    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}" />
-    <script src="{% static 'bootstrap/bootstrap.bundle.min.js' %}"></script>
-</head>
-<body>
-    <div class="container mt-5" >
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item active" aria-current="page">branches</li>
-            </ol>
-        </nav>
-        <table class="table table-hover">
-            <thead class="thead-dark">
-                <th>branche name</th>
-                <th>branche phone</th>
-                <th>branche mail</th>
-                <th>branche departments Count</th>
-            </thead>
-            <tbody>
-            {%for branche in branches %}
-                <tr>
-                    <td>{{branche.name}}<br/><small class="text-muted">{{branche.address}}</small></td>
-                    <td>{%if branche.phone%}{{branche.phone}}{%endif%}</td>
-                    <td>{%if branche.email%}{{branche.email}}{%endif%}</td>
-                    <td>0</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </body>
-    </div>
+{%endblock%}
+{% block breadcrumb%}
+    <li class="breadcrumb-item active" aria-current="page">branches</li>
+{%endblock%}
+{% block content%}
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <th>branche name</th>
+            <th>branche phone</th>
+            <th>branche mail</th>
+            <th>branche departments Count</th>
+        </thead>
+        <tbody>
+        {%for branche in branches %}
+            <tr>
+                <td><a href="{% url 'branchesDetails' branche.pk %}">{{branche.name}}</a><br/><small class="text-muted">{{branche.address}}</small></td>
+                <td>{%if branche.phone%}{{branche.phone}}{%endif%}</td>
+                <td>{%if branche.email%}{{branche.email}}{%endif%}</td>
+                <td>0</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="#" class="btn btn-outline-primary">new branche</a>
+{%endblock%}
     
-</body>
-</html>
