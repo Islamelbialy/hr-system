@@ -45,6 +45,9 @@ pip install Django
 django-admin startproject hrsystem or django-admin startproject hrsystem .
 python manage.py runserver or python manage.py runserver [portNo]
 python manage.py startapp company or django-admin startapp myapp
+py manage.py makemigrations
+py manage.py migrate
+py manage.py shell
 
 make DB connection using postgresql
 python manage.py migrate
