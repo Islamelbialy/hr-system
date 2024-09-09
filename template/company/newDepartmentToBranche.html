@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% load widget_tweaks %}
+{%block title%}
+<title>new branshe</title>
+{%endblock%}
+{% block breadcrumb%}
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'branches' %}">branches</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'branchesDetails' branche.id %}">{{branche.name}}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">new department</li>
+{%endblock%}
+{% block content%}
+<form method="post" novalidate>
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group">
+        {{field.label}}
+        {% render_field field class="form-control" placeholder="enter values" %}
+    </div>
+    {%endfor%}
+    <input type="submit" value="add department">
+</form>
+{%endblock%}

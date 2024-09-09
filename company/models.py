@@ -13,8 +13,8 @@ class branches(models.Model):
 
 
 class departments(models.Model):
-    name = models.CharField(max_length=50)
-    description = models.TextField(max_length=200,help_text="write description aboutthe department")
+    name = models.CharField(max_length=50,unique=True)
+    description = models.TextField(max_length=200,help_text="write description about the department")
     branch = models.ForeignKey(branches,related_name="departmentsBranche",on_delete=models.CASCADE) 
 
     def __str__(self):
