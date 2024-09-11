@@ -30,7 +30,9 @@ def newDepartmentToBranche(request,branche_id):
     form = newDepartmentToBrancheForm()
     if request.method == 'POST':
         form = newDepartmentToBrancheForm(request.POST)
-        if form.is_valid():
+        department = form.save(commit=False)
+        department.branch_id = branche_id
+        if department.is_valid():
             department = form.save(commit=False)
             department.branch_id = branche_id
             department.save()
