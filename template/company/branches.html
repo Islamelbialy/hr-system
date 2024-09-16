@@ -19,7 +19,7 @@
                 <td><a href="{% url 'branchesDetails' branche.pk %}">{{branche.name}}</a><br/><small class="text-muted">{{branche.address}}</small></td>
                 <td>{%if branche.phone%}{{branche.phone}}{%endif%}</td>
                 <td>{%if branche.email%}{{branche.email}}{%endif%}</td>
-                <td>0</td>
+                <td>{{branche.departmentsBranche.count}}</td>
             </tr>
         {% endfor %}
         </tbody>

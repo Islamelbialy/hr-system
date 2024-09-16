@@ -29,7 +29,7 @@
             <tbody>
                 {% for department in branche.departmentsBranche.all %}
                 <tr>
-                    <td>{{department.name}}</td>
+                    <td><a href="{% url 'editDepartmentToBranche' branche.id department.id %}">{{department.name}}</a></td>
                     <td>{{department.description}}</td>
                 </tr>
                 {%endfor%}

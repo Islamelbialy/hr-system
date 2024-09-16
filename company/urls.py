@@ -6,4 +6,5 @@ urlpatterns = [
     path('branche/<int:branche_id>',compView.BrancheDetails,name="branchesDetails"),
     path('newbranche',compView.newBranche,name="newBranche"),
     path('branche/<int:branche_id>/newDepartment',compView.newDepartmentToBranche,name="newDepartmentToBranche"),
+    path('branche/<int:branche_id>/editDepartment/<int:depaertment_id>',compView.editDepartmentToBranche,name="editDepartmentToBranche"),
 ]

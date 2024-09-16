@@ -15,6 +15,7 @@
                 {%endfor%}
             {% else%}
             {% render_field field class="form-control is-valid" placeholder=palceholderText|add:field.label %}
+            
             {% endif%}
             <p class="font-weight-light">{{field.help_text}}</p>
             {% endwith %}
@@ -23,11 +24,16 @@
 {%else%}
     {% for field in form %}
     <div class="form-group">
+        {%if field.label != 'Branch'%}
         {{field.label}}
         {% with palceholderText="Enter " %}
         {% render_field field class="form-control" placeholder=palceholderText|add:field.label %}
         <p class="font-weight-light">{{field.help_text}}</p>
         {% endwith %}
+        {%endif%}
     </div>
     {%endfor%}
+{%endif%}
+{%if form.errors%}
+<div class="alert alert-danger" role="alert">{{form.errors}}</div>
 {%endif%}
